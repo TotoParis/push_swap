@@ -6,12 +6,16 @@
 #    By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 16:40:58 by tbarret           #+#    #+#              #
-#    Updated: 2024/02/29 15:43:24 by tbarret          ###   ########.fr        #
+#    Updated: 2024/03/01 17:55:23 by tbarret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRC = src/function/args.c \
-	  src/function/push_swap.c
+SRC = src/function/args/check.c \
+ 	  src/function/args/create.c \
+	  src/function/push_swap.c \
+	  src/function/stack/stuct.c \
+	  src/function/stack/rotate.c \
+	  src/function/stack/swap.c 
 OBJ = ${SRC:.c=.o}
 NAME = push_swap
 HEADER  = src/header

@@ -1,23 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args.c                                             :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 15:13:06 by tbarret           #+#    #+#             */
-/*   Updated: 2024/02/29 15:56:41 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/01 17:51:53 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/01 17:53:44 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../../header/push_swap.h"
 
-int create_args(int )
-
-int	check_args(int argc, char **args)
+void	swap(t_stack **stack)
 {
-	if (!(argc - 1))
-		return (ft_printf("Error\nYou've used the wrong syntax."));
-	
-	return (0);
+	t_stack	*tmp;
+
+	if (!*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	*stack = (*stack)->next;
+	tmp->next = (*stack)->next;
+	(*stack)->next = tmp;
+	update_id(stack);
+}
+
+void	swap_a(t_stack **a)
+{
+	swap(a);
+}
+
+void	swap_b(t_stack **b)
+{
+	swap(b);
+}	
+
+void	swap_both(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
 }

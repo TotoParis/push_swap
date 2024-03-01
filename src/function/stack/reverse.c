@@ -1,32 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   reverse.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/29 14:50:51 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:56:59 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/01 18:17:12 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/push_swap.h"
+#include "../../header/push_swap.h"
 
-int	main(int argc, char **argv)
+void	reverse(t_stack **stack)
 {
-	t_stack	*stack;
+	t_stack	*tmp;
+	t_stack	*last;
 
-
-	if (argc < 2)
-		return (ft_printf(NO_ARGS));
-	stack = parse_args(argv);
-	if (!stack)
-		return (ft_printf(NO_STACK));
-	if (!check_double(stack))
-		return (ft_printf(NO_DOUBLE));
-	if (already_sorted(stack))
-		return (0);
-		
-	return (0);
+	if (!*stack || !(*stack)->next)
+		return ;
+	tmp = *stack;
+	last = ft_stklast(*stack);
+	*stack = (*stack)->next;
+	last->next = tmp;
+	tmp->next = NULL;
 }
 
+void	reverse_a(t_stack **a)
+{
+	reverse(a);
+}
+
+void	reverse_b(t_stack **b)
+{
+	reverse(b);
+}
+
+void	reverse_both(t_stack **a, t_stack **b)
+{
+	reverse(a);
+	reverse(b);
+}
