@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:50:51 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:56:59 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/02 17:35:47 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*stack;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
-
+	stack_b = NULL;
 	if (argc < 2)
 		return (ft_printf(NO_ARGS));
-	stack = parse_args(argv);
-	if (!stack)
+	stack_a = parse_args(argv);
+	if (!stack_a)
 		return (ft_printf(NO_STACK));
-	if (!check_double(stack))
-		return (ft_printf(NO_DOUBLE));
-	if (already_sorted(stack))
-		return (0);
-		
+	if (!check_double(stack_a))
+		return (ft_stkclear(&stack_a), ft_printf(NO_DOUBLE));
+	if (already_sorted(stack_a))
+		return (ft_stkclear(&stack_a), ft_printf(NO_DOUBLE));
+	push_swap(&stack_a, &stack_b);
+	ft_stkclear(&stack_a);
 	return (0);
 }
 

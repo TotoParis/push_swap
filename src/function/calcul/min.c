@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   min.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:38:39 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/02 17:24:16 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/02 17:47:19 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	reverse(t_stack **stack)
+int	get_min(t_stack **stack)
 {
+	int		min;
 	t_stack	*tmp;
-	t_stack	*last;
 
-	if (!*stack || !(*stack)->next)
-		return ;
 	tmp = *stack;
-	last = ft_stklast(*stack);
-	*stack = (*stack)->next;
-	last->next = tmp;
-	tmp->next = NULL;
+	min = tmp->nb;
+	while (tmp)
+	{
+		if (tmp->nb < min)
+			min = tmp->nb;
+		tmp = tmp->next;
+	}
+	return (min);
 }
 
-void	reverse_a(t_stack **a)
+int	get_min_id(t_stack **stack)
 {
-	reverse(a);
-}
+	int		min;
+	int		pos;
+	t_stack	*tmp;
 
-void	reverse_b(t_stack **b)
-{
-	reverse(b);
-}
-
-void	reverse_both(t_stack **a, t_stack **b)
-{
-	reverse(a);
-	reverse(b);
+	tmp = *stack;
+	min = tmp->nb;
+	pos = tmp->id;
+	while (tmp)
+	{
+		if (tmp->nb < min)
+		{
+			min = tmp->nb;
+			pos = tmp->id;
+		}
+		tmp = tmp->next;
+	}
+	return (pos);
 }

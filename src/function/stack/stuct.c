@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:02:18 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:31:03 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/02 16:51:51 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ void	ft_stkadd_back(t_stack **stack, t_stack *new)
 		return (ft_stkadd_front(stack, new));
 	t = ft_stklast(*stack);
 	t->next = new;
+}
+
+void	ft_stkclear(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
 }

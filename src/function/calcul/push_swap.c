@@ -1,43 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:38:39 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/02 17:33:47 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/02 17:35:31 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	reverse(t_stack **stack)
+void	push_swap(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp;
-	t_stack	*last;
 
-	if (!*stack || !(*stack)->next)
+	tmp = *stack_a;
+	if (already_sorted(stack_a))
 		return ;
-	tmp = *stack;
-	last = ft_stklast(*stack);
-	*stack = (*stack)->next;
-	last->next = tmp;
-	tmp->next = NULL;
-}
-
-void	reverse_a(t_stack **a)
-{
-	reverse(a);
-}
-
-void	reverse_b(t_stack **b)
-{
-	reverse(b);
-}
-
-void	reverse_both(t_stack **a, t_stack **b)
-{
-	reverse(a);
-	reverse(b);
+	else if (ft_stklast(tmp)->pos == 2)
+		swap_a(stack_a);
+	else if (ft_stklast(tmp)->pos == 3)
+		sort_three(stack_a);
+	else if (ft_stklast(tmp)->pos < 6)
+		sort_five(stack_a, stack_b);
+	else
+		sort(stack_a, stack_b);
 }

@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   median.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:38:39 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/02 17:24:39 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/02 17:37:22 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	reverse(t_stack **stack)
+int	median(t_stack **stack)
 {
-	t_stack	*tmp;
-	t_stack	*last;
+	int	len;
+	int	median;
 
-	if (!*stack || !(*stack)->next)
-		return ;
-	tmp = *stack;
-	last = ft_stklast(*stack);
-	*stack = (*stack)->next;
-	last->next = tmp;
-	tmp->next = NULL;
-}
-
-void	reverse_a(t_stack **a)
-{
-	reverse(a);
-}
-
-void	reverse_b(t_stack **b)
-{
-	reverse(b);
-}
-
-void	reverse_both(t_stack **a, t_stack **b)
-{
-	reverse(a);
-	reverse(b);
+	len = ft_stklast(*stack)->id;
+	if (len % 2 == 0)
+		median = len / 2;
+	else
+		median = (len / 2) + 1;
+	return (median);
 }

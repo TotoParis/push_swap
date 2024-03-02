@@ -1,43 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   max.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:38:39 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/02 11:46:47 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/02 17:47:59 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	reverse(t_stack **stack)
+int	get_max(t_stack **stack)
 {
+	int		max;
 	t_stack	*tmp;
-	t_stack	*last;
 
-	if (!*stack || !(*stack)->next)
-		return ;
 	tmp = *stack;
-	last = ft_stklast(*stack);
-	*stack = (*stack)->next;
-	last->next = tmp;
-	tmp->next = NULL;
+	max = tmp->nb;
+	while (tmp)
+	{
+		if (tmp->nb > max)
+			max = tmp->nb;
+		tmp = tmp->next;
+	}
+	return (max);
 }
 
-void	reverse_a(t_stack **a)
+int	get_max_id(t_stack **stack)
 {
-	reverse(a);
-}
+	int		max;
+	int		pos;
+	t_stack	*tmp;
 
-void	reverse_b(t_stack **b)
-{
-	reverse(b);
-}
-
-void	reverse_both(t_stack **a, t_stack **b)
-{
-	reverse(a);
-	reverse(b);
+	tmp = *stack;
+	max = tmp->nb;
+	pos = tmp->id;
+	while (tmp)
+	{
+		if (tmp->nb > max)
+		{
+			max = tmp->nb;
+			pos = tmp->id;
+		}
+		tmp = tmp->next;
+	}
+	return (pos);
 }

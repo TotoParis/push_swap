@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:13:06 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:04:25 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/02 16:55:38 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	set_arg(char **tab, t_stack **stack, int *j)
 	{
 		new = malloc(sizeof(t_stack));
 		if (!new)
-			return (0);
+			return (ft_stkclear(stack), 0);
 		new->nb = (int)ft_atoi(tab[i]);
 		new->id = *j;
 		new->next = NULL;

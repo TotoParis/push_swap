@@ -6,7 +6,7 @@
 #    By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/06 16:40:58 by tbarret           #+#    #+#              #
-#    Updated: 2024/03/01 17:55:23 by tbarret          ###   ########.fr        #
+#    Updated: 2024/03/02 17:36:11 by tbarret          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,16 @@ SRC = src/function/args/check.c \
 	  src/function/push_swap.c \
 	  src/function/stack/stuct.c \
 	  src/function/stack/rotate.c \
-	  src/function/stack/swap.c 
+	  src/function/stack/swap.c \
+	  src/function/stack/push.c \
+	  src/function/stack/reverse.c \
+	  src/function/calcul/max.c \
+	  src/function/calcul/min.c \
+	  src/function/calcul/median.c \
+	  src/function/calcul/sort.c \
+	  src/function/calcul/sort_five.c \
+	  src/function/calcul/push_swap.c
+	  
 OBJ = ${SRC:.c=.o}
 NAME = push_swap
 HEADER  = src/header
