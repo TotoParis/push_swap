@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 16:20:59 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:10:17 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 15:16:08 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ int	check_args(char **tab)
 	int		i;
 
 	i = 0;
+	if (!tab)
+		return (0);
 	while (tab[i])
 	{
 		if (!digit_args(tab[i]))

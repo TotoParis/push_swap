@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:50:51 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 10:59:09 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 15:10:56 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	stack_b = NULL;
 	if (argc < 2)
-		return (ft_printf(NO_ARGS));
+		return (0);
 	stack_a = parse_args(argv);
 	if (!stack_a)
 		return (ft_printf(NO_STACK));

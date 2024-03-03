@@ -6,25 +6,18 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:27:23 by tbarret           #+#    #+#             */
-/*   Updated: 2023/11/11 22:00:03 by tbarret          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   Bx: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/11 20:27:23 bx tbarret           #+#    #+#             */
-/*   Updated: 2023/11/11 21:55:52 bx tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 15:20:03 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_itemcount(char const *s, char c)
+static int is_space(char c)
+{
+	return (c == ' ' || c == '\n' || c == '\t');
+}
+
+static int	ft_itemcount(char const *s)
 {
 	int	i;
 	int	l;
@@ -33,7 +26,7 @@ static int	ft_itemcount(char const *s, char c)
 	l = 0;
 	while (s[i])
 	{
-		if ((s[i] != c && s[i + 1] == c) || (!s[i + 1] && s[i] != c))
+		if ((!is_space(s[i]) && is_space(s[i + 1])) || (!s[i + 1] && !is_space(s[i])))
 			l++;
 		i++;
 	}
@@ -52,7 +45,7 @@ static void	ft_garbage(char **r)
 	return ;
 }
 
-static void	ft_itemplace(char const *s, char c, char **r)
+static void	ft_itemplace(char const *s, char **r)
 {
 	int		i;
 	int		j;
@@ -62,10 +55,10 @@ static void	ft_itemplace(char const *s, char c, char **r)
 	x = 0;
 	while (s[++i])
 	{
-		if (s[i] == c)
+		if (is_space(s[i]))
 			continue ;
 		j = i;
-		while (s[j] != c && s[j])
+		while (!is_space(s[j]) && s[j])
 			j++;
 		r[x] = ft_substr(s, i, (j - i));
 		if (!r[x])
@@ -78,15 +71,15 @@ static void	ft_itemplace(char const *s, char c, char **r)
 	}
 }
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char const *s)
 {
 	char	**r;
 
 	if (!s)
 		return (0);
-	r = ft_calloc((ft_itemcount(s, c) + 1), sizeof(char *));
+	r = ft_calloc((ft_itemcount(s) + 1), sizeof(char *));
 	if (!r)
 		return (0);
-	ft_itemplace(s, c, r);
+	ft_itemplace(s, r);
 	return (r);
 }
