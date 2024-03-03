@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:51:20 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:48:14 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 13:56:49 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,14 @@ int		cheaper_move(t_cost cost);
 void	sort(t_stack **a, t_stack **b);
 void	sort_five(t_stack **stack_a, t_stack **stack_b);
 void	sort_three(t_stack **stack_a);
-void	double_rotation(t_stack **a, t_stack **b, int pos_a, int pos_b);
-void	move_to_top_b(t_stack **b, int pos);
-int		reverse_pos(t_stack **stack, int pos);
+void	double_rotation(t_stack **a, t_stack **b, int id_a, int id_b);
+void	move_to_top_b(t_stack **b, int id);
+int		reverse_id(t_stack **stack, int id);
 
 
 void 	update_id(t_stack **stack);
+int 	get_id(t_stack **stack, int id);
+int 	max_id(t_stack **stack);
 void	swap(t_stack **stack);
 void	swap_a(t_stack **a);
 void	swap_b(t_stack **b);
@@ -88,9 +90,9 @@ void	reverse_b(t_stack **b);
 void	reverse_both(t_stack **a, t_stack **b);
 void	print_stack(t_stack *stack);
 void	push_swap(t_stack **stack_a, t_stack **stack_b);
-void	rra_rrb(t_stack **a, t_stack **b, int pos_a, int pos_b);
-void	rra_rb(t_stack **a, t_stack **b, int pos_a, int pos_b);
-void	ra_rrb(t_stack **a, t_stack **b, int pos_a, int pos_b);
-void	ra_rb(t_stack **a, t_stack **b, int pos_a, int pos_b);
+void	rra_rrb(t_stack **a, t_stack **b, int id_a, int id_b);
+void	rra_rb(t_stack **a, t_stack **b, int id_a, int id_b);
+void	ra_rrb(t_stack **a, t_stack **b, int id_a, int id_b);
+void	ra_rb(t_stack **a, t_stack **b, int id_a, int id_b);
 
 #endif

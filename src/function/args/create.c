@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:13:06 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:55:38 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 14:27:43 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	set_arg(char **tab, t_stack **stack, int *j)
 		if (!new)
 			return (ft_stkclear(stack), 0);
 		new->nb = (int)ft_atoi(tab[i]);
-		new->id = *j;
+		new->id = *j + 1;
 		new->next = NULL;
 		if (!*stack)
 			ft_stkadd_front(stack, new);
@@ -83,6 +83,5 @@ t_stack	*parse_args(char **args)
 		clear_tab(tab);
 		i++;
 	}
-	print_stack(stack);
 	return (stack);
 }

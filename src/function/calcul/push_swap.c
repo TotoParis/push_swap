@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:33:47 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:35:31 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 11:12:02 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,11 @@ void	push_swap(t_stack **stack_a, t_stack **stack_b)
 	t_stack	*tmp;
 
 	tmp = *stack_a;
-	if (already_sorted(stack_a))
-		return ;
-	else if (ft_stklast(tmp)->pos == 2)
+	if (ft_stklast(tmp)->id == 2)
 		swap_a(stack_a);
-	else if (ft_stklast(tmp)->pos == 3)
+	else if (ft_stklast(tmp)->id == 3)
 		sort_three(stack_a);
-	else if (ft_stklast(tmp)->pos < 6)
+	else if (ft_stklast(tmp)->id < 6)
 		sort_five(stack_a, stack_b);
 	else
 		sort(stack_a, stack_b);

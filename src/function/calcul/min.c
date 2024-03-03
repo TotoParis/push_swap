@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:24:16 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:47:19 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 13:56:49 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int	get_min(t_stack **stack)
 int	get_min_id(t_stack **stack)
 {
 	int		min;
-	int		pos;
+	int		id;
 	t_stack	*tmp;
 
 	tmp = *stack;
 	min = tmp->nb;
-	pos = tmp->id;
+	id = tmp->id;
 	while (tmp)
 	{
 		if (tmp->nb < min)
 		{
 			min = tmp->nb;
-			pos = tmp->id;
+			id = tmp->id;
 		}
 		tmp = tmp->next;
 	}
-	return (pos);
+	return (id);
 }

@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:12:37 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:50:05 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 14:27:02 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,64 +36,64 @@ void	sort(t_stack **a, t_stack **b)
 	}
 	while (*b)
 	{
-		move_to_top_b(b, max_pos(b));
+		move_to_top_b(b, get_max_id(b));
 		push_a(b, a);
 	}
 }
 
-void	double_rotation(t_stack **a, t_stack **b, int pos_a, int pos_b)
+void	double_rotation(t_stack **a, t_stack **b, int id_a, int id_b)
 {
 	t_cost	cost;
 	int		min_cost;
 
-	cost.ra_rb = compare_cost(pos_a, pos_b);
-	cost.rra_rrb = compare_cost(reverse_pos(a, pos_a),
-			reverse_pos(b, pos_b));
-	cost.rra_rb = reverse_pos(a, pos_a) + pos_b ;
-	cost.ra_rrb = pos_a + reverse_pos(b, pos_b);
+	cost.ra_rb = compare_cost(id_a, id_b);
+	cost.rra_rrb = compare_cost(reverse_id(a, id_a),
+			reverse_id(b, id_b));
+	cost.rra_rb = reverse_id(a, id_a) + id_b ;
+	cost.ra_rrb = id_a + reverse_id(b, id_b);
 	min_cost = cheaper_move(cost);
 	if (min_cost == cost.rra_rrb)
-		rra_rrb(a, b, pos_a, pos_b);
+		rra_rrb(a, b, id_a, id_b);
 	else if (min_cost == cost.rra_rb)
-		rra_rb(a, b, pos_a, pos_b);
+		rra_rb(a, b, id_a, id_b);
 	else if (min_cost == cost.ra_rrb)
-		ra_rrb(a, b, pos_a, pos_b);
+		ra_rrb(a, b, id_a, id_b);
 	else
-		ra_rb(a, b, pos_a, pos_b);
+		ra_rb(a, b, id_a, id_b);
 }
 
-void	move_to_top_b(t_stack **b, int pos)
+void	move_to_top_b(t_stack **b, int id)
 {
-	if (pos > median(b))
+	if (id > median(b))
 	{
-		pos = reverse_pos(b, pos);
-		while (pos > 1)
+		id = reverse_id(b, id);
+		while (id > 1)
 		{
-			reverse_rotate_b(b);
-			pos--;
+			reverse_b(b);
+			id--;
 		}
 	}
 	else
 	{
-		while (pos > 1)
+		while (id > 1)
 		{
 			rotate_b(b);
-			pos--;
+			id--;
 		}
 	}
 }
 
-int	reverse_pos(t_stack **stack, int pos)
+int	reverse_id(t_stack **stack, int id)
 {
 	int		size;
 	int		i;
 
 	size = ft_stklast(*stack)->id;
 	i = 1;
-	while (size >= pos)
+	while (size >= id)
 	{
 		i++;
-		pos++;
+		id++;
 	}
 	return (i);
 }

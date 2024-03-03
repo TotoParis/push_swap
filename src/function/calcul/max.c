@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 11:46:47 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:47:59 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 13:56:49 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,20 @@ int	get_max(t_stack **stack)
 int	get_max_id(t_stack **stack)
 {
 	int		max;
-	int		pos;
+	int		id;
 	t_stack	*tmp;
 
 	tmp = *stack;
 	max = tmp->nb;
-	pos = tmp->id;
+	id = tmp->id;
 	while (tmp)
 	{
 		if (tmp->nb > max)
 		{
 			max = tmp->nb;
-			pos = tmp->id;
+			id = tmp->id;
 		}
 		tmp = tmp->next;
 	}
-	return (pos);
+	return (id);
 }

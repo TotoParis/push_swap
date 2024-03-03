@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 16:38:39 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 11:25:48 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,34 @@
 static void	reverse(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack	*last;
+	t_stack	*tmp2;
 
-	if (!*stack || !(*stack)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	tmp = *stack;
-	last = ft_stklast(*stack);
-	*stack = (*stack)->next;
-	last->next = tmp;
-	tmp->next = NULL;
+	tmp = ft_stklast(*stack);
+	ft_stkadd_front(stack, tmp);
+	tmp2 =*stack;
+	while (tmp2->next != tmp)
+		tmp2 = tmp2->next;
+	tmp2->next = NULL;
+	update_id(stack);
 }
 
 void	reverse_a(t_stack **a)
 {
 	reverse(a);
+	ft_printf("rra\n");
 }
 
 void	reverse_b(t_stack **b)
 {
 	reverse(b);
+	ft_printf("rrb\n");
 }
 
 void	reverse_both(t_stack **a, t_stack **b)
 {
 	reverse(a);
 	reverse(b);
+	ft_printf("rrr\n");
 }

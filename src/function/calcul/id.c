@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   id.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/01 18:00:01 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 11:38:08 by tbarret          ###   ########.fr       */
+/*   Created: 2024/03/03 10:44:32 by tbarret           #+#    #+#             */
+/*   Updated: 2024/03/03 14:26:19 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-void	push(t_stack **stack_a, t_stack **stack_b)
+void update_id(t_stack **stack)
+{
+	t_stack	*tmp;
+	int		i;
+
+	tmp = *stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp->id = i + 1;
+		i++;
+		tmp = tmp->next;
+	}
+}
+
+int get_id(t_stack **stack, int nbr)
 {
 	t_stack	*tmp;
 
-	if (!stack_a || !*stack_a)
-		return ;
-	tmp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	tmp->next = NULL;
-	ft_stkadd_front(stack_b, tmp);
-	update_id(stack_a);
-	update_id(stack_b);
-}
-
-void	push_a(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	ft_printf("pa\n");
-}
-
-void	push_b(t_stack **a, t_stack **b)
-{
-	push(a, b);
-	ft_printf("pb\n");
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->nb == nbr)
+			break ;
+		tmp = tmp->next;
+	}
+	return (tmp->id);
 }

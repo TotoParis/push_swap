@@ -6,37 +6,22 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:24:19 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/01 17:46:18 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 11:25:00 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-void update_id(t_stack **stack)
-{
-	t_stack	*tmp;
-	int		i;
-
-	tmp = *stack;
-	i = 0;
-	while (tmp)
-	{
-		tmp->id = i;
-		i++;
-		tmp = tmp->next;
-	}
-}
-
 static void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!*stack || !(*stack)->next)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
 	tmp = *stack;
+	ft_stkadd_back(stack, tmp);
 	*stack = (*stack)->next;
 	tmp->next = NULL;
-	ft_stkadd_back(stack, tmp);
 	update_id(stack);
 }
 
@@ -44,15 +29,18 @@ static void	rotate(t_stack **stack)
 void rotate_a(t_stack **a)
 {
 	rotate(a);
+	ft_printf("ra\n");
 }
 
 void	rotate_b(t_stack **b)
 {
 	rotate(b);
+	ft_printf("rb\n");
 }
 
 void	rotate_both(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
+	ft_printf("rr\n");
 }

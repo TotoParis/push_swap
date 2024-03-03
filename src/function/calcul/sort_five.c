@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:19:01 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/02 17:21:28 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 12:06:05 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	sort_five(t_stack **stack_a, t_stack **stack_b)
 {
-	int		median;
-	int		min_pos;
+	int		med;
+	int		min_id;
 	int		min;
 
-	while (ft_stklast((*stack_a))->pos != 3)
+	while (ft_stklast((*stack_a))->id != 3)
 	{
-		median = median(stack_a);
-		min_pos = min_pos(stack_a);
-		min = min(stack_a);
+		med = median(stack_a);
+		min_id = get_min_id(stack_a);
+		min = get_min(stack_a);
 		while ((*stack_a)->nb != min)
 		{
-			if (min_pos > median)
-				lst_reverse_rotate_a(stack_a);
+			if (min_id > med)
+				reverse_a(stack_a);
 			else
-				lst_rotate_a(stack_a);
+				rotate_a(stack_a);
 		}
-		lst_push_b(stack_a, stack_b);
+		push_b(stack_a, stack_b);
 	}
 	sort_three(stack_a);
 	while (*stack_b)
-		lst_push_a(stack_b, stack_a);
+		push_a(stack_b, stack_a);
 }
