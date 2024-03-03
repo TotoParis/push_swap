@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:51:20 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 15:09:17 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/03 16:06:08 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # include <limits.h>
 
 # ifndef ERROR_MSG
-#  define NO_ARGS "Error\n"
 #  define NO_STACK "Error\n"
 #  define NO_DOUBLE "Error\n"
 # endif
