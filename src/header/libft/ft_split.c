@@ -6,13 +6,13 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/11 20:27:23 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 15:20:03 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:21:36 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int is_space(char c)
+static int	is_space(char c)
 {
 	return (c == ' ' || c == '\n' || c == '\t');
 }
@@ -26,7 +26,8 @@ static int	ft_itemcount(char const *s)
 	l = 0;
 	while (s[i])
 	{
-		if ((!is_space(s[i]) && is_space(s[i + 1])) || (!s[i + 1] && !is_space(s[i])))
+		if ((!is_space(s[i]) && is_space(s[i + 1]))
+			|| (!s[i + 1] && !is_space(s[i])))
 			l++;
 		i++;
 	}

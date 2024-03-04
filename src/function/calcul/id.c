@@ -6,13 +6,13 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/03 10:44:32 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 14:26:19 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:26:24 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-void update_id(t_stack **stack)
+void	update_id(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		i;
@@ -27,7 +27,7 @@ void update_id(t_stack **stack)
 	}
 }
 
-int get_id(t_stack **stack, int nbr)
+int	get_id(t_stack **stack, int nbr)
 {
 	t_stack	*tmp;
 

@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 14:50:51 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 16:00:04 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:24:07 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,3 @@ int	main(int argc, char **argv)
 	ft_stkclear(&stack_a);
 	return (0);
 }
-

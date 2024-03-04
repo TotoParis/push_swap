@@ -6,13 +6,13 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 18:15:04 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 11:25:48 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:24:29 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	reverse(t_stack **stack)
+void	reverse(t_stack **stack)
 {
 	t_stack	*tmp;
 	t_stack	*tmp2;
@@ -21,7 +21,7 @@ static void	reverse(t_stack **stack)
 		return ;
 	tmp = ft_stklast(*stack);
 	ft_stkadd_front(stack, tmp);
-	tmp2 =*stack;
+	tmp2 = *stack;
 	while (tmp2->next != tmp)
 		tmp2 = tmp2->next;
 	tmp2->next = NULL;

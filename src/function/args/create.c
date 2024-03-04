@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 15:13:06 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 15:26:43 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:51:05 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_stack(t_stack *stack)
 	tmp = stack;
 	while (tmp)
 	{
-		printf("id: %d, nb: %d\n", tmp->id, tmp->nb);
+		ft_printf("id: %d, nb: %d\n", tmp->id, tmp->nb);
 		tmp = tmp->next;
 	}
 }
@@ -75,7 +75,9 @@ t_stack	*parse_args(char **args)
 	stack = NULL;
 	while (args[i])
 	{
-		tab = ft_split(args[i]);
+		tab = malloc(sizeof(*tab) * 2);
+		tab[0] = ft_strdup(args[i]);
+		tab[1] = NULL;
 		if (!check_args(tab))
 			return (clear_tab(tab), NULL);
 		if (!set_arg(tab, &stack, &j))
@@ -83,6 +85,5 @@ t_stack	*parse_args(char **args)
 		clear_tab(tab);
 		i++;
 	}
-	//print_stack(stack);
 	return (stack);
 }

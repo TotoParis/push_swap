@@ -6,7 +6,7 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:04:38 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 13:56:49 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:27:19 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ int	target_nbr_b(int nbr, t_stack **b)
 	}
 	return (nbr_b);
 }
-
 
 int	min_cost(t_stack **a, t_stack **b, int nbr_a, int nbr_b)
 {

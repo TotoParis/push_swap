@@ -6,13 +6,13 @@
 /*   By: tbarret <tbarret@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 17:24:19 by tbarret           #+#    #+#             */
-/*   Updated: 2024/03/03 11:25:00 by tbarret          ###   ########.fr       */
+/*   Updated: 2024/03/04 12:25:29 by tbarret          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/push_swap.h"
 
-static void	rotate(t_stack **stack)
+void	rotate(t_stack **stack)
 {
 	t_stack	*tmp;
 
@@ -25,8 +25,7 @@ static void	rotate(t_stack **stack)
 	update_id(stack);
 }
 
-
-void rotate_a(t_stack **a)
+void	rotate_a(t_stack **a)
 {
 	rotate(a);
 	ft_printf("ra\n");
